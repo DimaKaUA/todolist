@@ -1,0 +1,63 @@
+  <%- include("header") -%>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">ToDoList</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Today</a>
+            </li>
+            <% listNames.forEach(function(listName) { %>
+              <li class="nav-item">
+                <a class="nav-link active" href="/<%= listName %>"><%= listName %></a>
+              </li>
+            <% }); %>
+          </ul>
+          <form class="d-flex" action="/list/new" method="POST">
+            <input class="form-control me-2" type="text" placeholder="New List" aria-label="New List" name="newListName" autocomplete="off">
+            <button class="btn btn-outline-light" type="submit" name="list" value=<%= listTitle %>>Add</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="box">
+      <ul class="list-group">
+        <li class="list-group-item" id="heading">         
+          <h1><%= listTitle %></h1>
+        </li>
+        <% itemList.forEach(function(item) { %>
+          <li class="list-group-item">
+            <form action="/item/delete" method="POST">
+              <input class="form-check-input me-1" type="checkbox" name="checkbox" value=<%= item._id %> onChange="this.form.submit()">
+              <%= item.name %>
+              <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+            </form>
+          </li>
+        <% }); %>
+        <li class="list-group-item">
+          <form action="/" method="POST">
+            <div class="input-group mb-0">
+              <input class="form-control" type="text" name="newItem" placeholder="New Item" aria-label="New Item" aria-describedby="button-addon2" autocomplete="off">
+              <button class="btn btn-outline-success" type="submit" name="listName" id="button-addon2" value=<%= listTitle %>>Add</button>
+            </div>
+          </form>
+        </li>
+        <% if (listTitle !== "Today") { %>
+          <li class="list-group-item">
+            <form action="/list/delete" method="POST">
+              <div class="d-grid mx-auto">
+                <button class="btn btn-outline-danger" type="submit" name="listName" value=<%= listTitle %>>Delete List</button>
+              </div>
+            </form>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <%- include("footer") -%>

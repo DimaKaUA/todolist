@@ -1,0 +1,26 @@
+{
+  "name": "todolist-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DimaKaUA",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaKaUA/todolist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DimaKaUA/todolist/issues"
+  },
+  "homepage": "https://github.com/DimaKaUA/todolist#readme"
+}

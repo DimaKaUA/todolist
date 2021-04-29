@@ -1,0 +1,46 @@
+html {
+  background-color: #E4E9FD;
+  min-height: 1500px;
+  font-family: 'helvetica neue';
+}
+
+.container {
+  max-width: 1000px
+}
+
+h1 {
+  color: #fff;
+}
+
+.navbar {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+  max-width: 400px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #F54440;
+  text-align: center;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.list-group-item {
+  background-color: #F8FA7E;
+}
